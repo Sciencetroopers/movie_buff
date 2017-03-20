@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
 
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_admin, except: [:index, :show]
   before_action :find_movie, :only => [:show, :edit, :update, :delete, :upvote]
 
   def index
@@ -10,13 +12,11 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.new
-    #@movie = current_user.movies.build
+    @movie = current_user.movies.build
   end
 
   def create
-    @movie = Movie.new(movie_params)
-    #@movie = current_user.movies.build(movie_params)
+    @movie = current_user.movies.build(movie_params)
 
     if @movie.save
       flash[:notice] = "New Movie Created"
@@ -59,4 +59,9 @@ class MoviesController < ApplicationController
   def find_movie
     @movie = Movie.find(params[:id])
   end
+
+  def authenticate_admin
+    redirect_to root_path unless current_user.admin == true
+  end
+
 end
