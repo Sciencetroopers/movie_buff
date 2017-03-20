@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  keywords: MyString
+  min_year: 1
+  max_year: 1
+  genre: MyString
+  director: MyString
+  actor: MyString
+
+two:
+  keywords: MyString
+  min_year: 1
+  max_year: 1
+  genre: MyString
+  director: MyString
+  actor: MyString
