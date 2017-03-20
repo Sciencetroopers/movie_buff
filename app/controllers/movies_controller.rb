@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   before_action :find_movie, :only => [:show, :edit, :update, :delete, :upvote]
 
   def index
-    @moviess = Movie.all.order("created_at DESC") # Order them on basis of likes!
+    @movies = Movie.search(params[:search]).paginate(:page => params[:page], :per_page => 2)
   end
 
   def show
