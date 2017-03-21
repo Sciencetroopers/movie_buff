@@ -1,4 +1,5 @@
 = simple_form_for(@movie, html: {class: 'form-horizontal'}) do |f|
+  = f.input :image
   = f.input :title, input_html: {class: "form-control"}
   = f.input :synopsis, input_html: {class: "form-control"}
   = f.input :director, input_html: {class: "form-control"}
@@ -13,4 +14,4 @@
   = f.input :link_w, input_html: {class: "form-control"}
   = f.input :link_fb, input_html: {class: "form-control"}
   %br
-  = f.button :submit	
+  = f.button :submit
