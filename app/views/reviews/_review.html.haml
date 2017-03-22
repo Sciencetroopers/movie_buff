@@ -1,0 +1,17 @@
+%hr/
+- for i in 1..(review.rating)
+  %span.glyphicon.glyphicon-star
+%p= review.body
+%p
+  Submitted by #{review.user.name}
+- if user_signed_in?
+  - if review.user == current_user
+    %p= link_to 'Delete', [review.movie, review], method: :delete, data: {confirm: 'Are You Sure?'}
+:javascript
+  $('.star-rating').raty({
+        path: '/assets/',
+        readOnly: true,
+        score: function() {
+              return $(this).attr('data-score');
+      }
+    });

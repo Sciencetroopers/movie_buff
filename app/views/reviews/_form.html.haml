@@ -1,0 +1,10 @@
+= simple_form_for [@movie, Review.new] do |f|
+  #star-rating
+  = f.input :body, label: "Review", input_html: {class: 'form-control' }
+  = f.button :submit
+
+:javascript
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });

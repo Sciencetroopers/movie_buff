@@ -1,4 +1,15 @@
-= image_tag @movie.image.url(:medium)
 %h1= @movie.title
 
+= image_tag @movie.image.url(:medium)
+
+
 = link_to "Back", movies_path
+
+
+%h2= "#{pluralize(@movie.reviews.count, 'Review')}"
+
+= render @movie.reviews
+
+- if current_user
+  %h3 Add a Review
+  = render 'reviews/form'
