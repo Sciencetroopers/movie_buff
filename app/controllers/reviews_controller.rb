@@ -1,9 +1,9 @@
 class ReviewsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :find_movie
 
   def create
-    @movie = Movie.find(params[:movie_id])
     @review = @movie.reviews.create(review_params)
 
     @review.user = current_user
@@ -16,24 +16,27 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find(params[:movie_id])
     @review = @movie.reviews.find(params[:id])
     @review.destroy
 
     redirect_to movie_path(@movie)
   end
 
-  # def upvote
-  #   @movie = movie.find(params[:movie_id])
-  #   @review = @movie.reviews.find(params[:id])
-  #   @review.upvote_by current_user
-  #
-  #   redirect_to :back
-  # end
+  def upvote
+    @review = @movie.reviews.find(params[:id])
+    @review.upvote_by current_user
+
+    redirect_to :back
+  end
 
   private
+
+  def find_movie
+    @movie = Movie.find(params[:movie_id])
+  end
 
   def review_params
     params.require(:review).permit(:rating, :body, :movie_id, :user_id)
   end
+
 end

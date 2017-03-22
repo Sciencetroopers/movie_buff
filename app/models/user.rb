@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  acts_as_voter
+
   has_many :movies
   has_many :reviews
   has_attached_file :image, styles: { medium: "200x350>", small: "300x250>" }

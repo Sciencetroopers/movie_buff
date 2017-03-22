@@ -3,6 +3,8 @@
   %span.glyphicon.glyphicon-star
 %p= review.body
 %p
+  = link_to "like", like_movie_review_path(review.movie, review), method: :get
+  = review.get_upvotes.size
   Submitted by #{review.user.name}
 - if user_signed_in?
   - if review.user == current_user

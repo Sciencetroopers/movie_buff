@@ -1,9 +1,11 @@
 %h1= @movie.title
-
+%p
+  = link_to "Like Movie", like_movie_path(@movie), mothod: :get
+  = @movie.get_upvotes.size
 = image_tag @movie.image.url(:medium)
 
 
-= link_to "Back", movies_path
+%p= link_to "Back", movies_path
 
 
 %h2= "#{pluralize(@movie.reviews.count, 'Review')}"

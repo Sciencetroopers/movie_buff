@@ -44,10 +44,10 @@ class MoviesController < ApplicationController
     redirect_to root_path
   end
 
-  # def upvote
-  #   @article.upvote_by current_user
-  #   redirect_to :back
-  # end
+  def upvote
+    @movie.upvote_by current_user
+    redirect_to :back
+  end
 
   private
 
