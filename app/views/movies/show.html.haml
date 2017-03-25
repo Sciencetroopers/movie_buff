@@ -15,3 +15,11 @@
 - if current_user
   %h3 Add a Review
   = render 'reviews/form'
+
+%br
+%br
+%hr
+.random-movie
+  = link_to (image_tag @random_movie.image.url(:small)), @random_movie
+  %h3= link_to @random_movie.title, @random_movie
+  = @random_movie.get_upvotes.size

@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
 
   def show
     @reviews = @movie.reviews
+    @random_movie = Movie.where.not(id: @movie).order("RANDOM()").first
   end
 
   def new
