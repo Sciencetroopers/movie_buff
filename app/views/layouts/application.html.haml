@@ -3,34 +3,34 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Mallanna", :rel => "stylesheet"}/
     %title MovieBuff
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
     .container
-      %header
-        %nav.big-nav
-          = link_to image_tag('logo.PNG', class: "logo"), root_path, class: "nav-logo"
-          %ul.nav-list
-            %li.nav-search
+      .header-banner
+        %header
+          = link_to image_tag('logo.PNG', class: "nav-logo-img"), root_path, class: "nav-logo"
+          .user-tools
+            .nav-search
               = form_tag movies_path, :method => 'get' do
                 %p.nav-search-form
                   -# = button_tag( :class => "nav-search-button") do
                   -#   %i.fa.fa-search.nav-search-icon
                   = text_field_tag :search, params[:search], placeholder: "Quick Search"
-            %li.nav-browse
-              = link_to image_tag('browse.PNG', class: "logo"), root_path, class: "nav-browse-img"
-            %li.nav-expand
-              %i.fa.fa-ellipsis-h.nav-expand-icon
-              .nav-dropdown
+            = link_to image_tag('browse.PNG', class: "nav-browse-img"), new_search_path, class: "nav-browse"
+            .nav-expand
+              %i.fa.fa-ellipsis-v.nav-expand-icon
+              %nav.nav-dropdown
                 %ul
                   %li
-                    = link_to "Home", "#"
+                    = link_to "Home", root_path
                   %li
-                    = link_to "Browse", "#", id: "f"
+                    = link_to "Browse", new_search_path
                   %li
-                    = link_to "Profile"
+                    = link_to "Profile", profile_path
                   %li
                     = link_to "Edit Profile"
                   -if user_signed_in?
@@ -39,40 +39,39 @@
                   -else
                     %li
                       = link_to "Sign In", new_user_session_path
-            %li.nav-profile
-              %i.fa.fa-user-circle-o
-        .small-nav
-          %input#burger{:type => "checkbox"}/
-          %label{:for => "burger"}
-            %span
-            %span
-            %span
-          %nav.samll-nav-container
-            = image_tag('logo.PNG', class: "logo")
-            .small-nav-search
-              %i.fa.fa-searh.small-nav-search-icon
-            .samll-nav-browse-icon
-            %ul
-              %li
-                = link_to "Home", "#"
-              %li
-                = link_to "Browse", "#", id: "f"
-              %li
-                = link_to "Profile"
-              %li
-                = link_to "Edit Profile"
-              -if user_signed_in?
-                %li
-                  = link_to "Sign Out", destroy_user_session_path, method: :delete
-              -else
-                %li
-                  = link_to "Sign In", new_user_session_path
+            .nav-profile
+              = link_to profile_path do
+                %i.fa.fa-user-circle-o.nav-profile-icon
       .notice= notice
       = yield
-      %footer
-        %p
-          MOVIE BUFF
-          
+    %footer.hide
+      .footer
+        .footer-info
+          %p.text
+            MOVIE BUFF
+          %ul.links
+            %li
+              = link_to "Browse", "#", id: "f"
+            %li
+              = link_to "Profile"
+            -if user_signed_in?
+              %li
+                = link_to "Sign Out", destroy_user_session_path, method: :delete
+            -else
+              %li
+                = link_to "Sign In", new_user_session_path
+        .creator-info
+          %p.text Paritosh Mehta
+          %ul.links
+            %li
+              = link_to '#', class: "footer-icon" do
+                %i.fa.fa-instagram
+            %li
+              = link_to '#', class: "footer-icon" do
+                %i.fa.fa-github
+            %li
+              = link_to '#', class: "footer-icon" do
+                %i.fa.fa-facebook-square
 
 
 -# -if user_signed_in?

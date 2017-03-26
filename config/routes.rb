@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :searches
 
-  get '/profile', to: "pages#profile"
-  get '/favourites', to: "pages#favourites"
+  get '/profile', to: "profiles#profile"
+  get '/favourites', to: "profiles#favourites"
   root 'movies#index'
 end
