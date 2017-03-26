@@ -2,16 +2,81 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}/
     %title MovieBuff
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
     .container
+      %header
+        %nav.big-nav
+          = link_to image_tag('logo.PNG', class: "logo"), root_path, class: "nav-logo"
+          %ul.nav-list
+            %li.nav-search
+              = form_tag movies_path, :method => 'get' do
+                %p.nav-search-form
+                  -# = button_tag( :class => "nav-search-button") do
+                  -#   %i.fa.fa-search.nav-search-icon
+                  = text_field_tag :search, params[:search], placeholder: "Quick Search"
+            %li.nav-browse
+              = link_to image_tag('browse.PNG', class: "logo"), root_path, class: "nav-browse-img"
+            %li.nav-expand
+              %i.fa.fa-ellipsis-h.nav-expand-icon
+              .nav-dropdown
+                %ul
+                  %li
+                    = link_to "Home", "#"
+                  %li
+                    = link_to "Browse", "#", id: "f"
+                  %li
+                    = link_to "Profile"
+                  %li
+                    = link_to "Edit Profile"
+                  -if user_signed_in?
+                    %li
+                      = link_to "Sign Out", destroy_user_session_path, method: :delete
+                  -else
+                    %li
+                      = link_to "Sign In", new_user_session_path
+            %li.nav-profile
+              %i.fa.fa-user-circle-o
+        .small-nav
+          %input#burger{:type => "checkbox"}/
+          %label{:for => "burger"}
+            %span
+            %span
+            %span
+          %nav.samll-nav-container
+            = image_tag('logo.PNG', class: "logo")
+            .small-nav-search
+              %i.fa.fa-searh.small-nav-search-icon
+            .samll-nav-browse-icon
+            %ul
+              %li
+                = link_to "Home", "#"
+              %li
+                = link_to "Browse", "#", id: "f"
+              %li
+                = link_to "Profile"
+              %li
+                = link_to "Edit Profile"
+              -if user_signed_in?
+                %li
+                  = link_to "Sign Out", destroy_user_session_path, method: :delete
+              -else
+                %li
+                  = link_to "Sign In", new_user_session_path
       .notice= notice
-      -if user_signed_in?
-        = link_to "Sign Out", destroy_user_session_path, method: :delete
-        = link_to "Edit Profile", edit_user_registration_path
-      -else
-        = link_to "Sign In", new_user_session_path
       = yield
+      %footer
+        %p
+          MOVIE BUFF
+          
+
+
+-# -if user_signed_in?
+-#   = link_to "Sign Out", destroy_user_session_path, method: :delete
+-#   = link_to "Edit Profile", edit_user_registration_path
+-# -else
+-#   = link_to "Sign In", new_user_session_path
