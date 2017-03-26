@@ -1,6 +1,16 @@
-%h1 Index Page
+.banner
+  .banner-text
+    %h2
+      %strong What do you crave on a Saturday Evening?
+    %h2 Welcome to a place where good movies come to have Fun!
+  .banner-actions
+    %h3
+      -if user_signed_in?
+        = "Welcome, #{current_user.name}"
+      -else
+        = link_to "Sign In", new_user_session_path, class: "button form-btn"
+        = link_to "Sign Up", new_user_registration_path, class: "button form-sub"
 
-%hr
 - @movies.each do |movie|
   %p= link_to movie.title, movie
 %p= link_to "--> New Movie", new_movie_path

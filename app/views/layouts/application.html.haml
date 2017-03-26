@@ -9,73 +9,36 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-    .container
-      .header-banner
-        %header
-          = link_to image_tag('logo.PNG', class: "nav-logo-img"), root_path, class: "nav-logo"
-          .user-tools
-            .nav-search
-              = form_tag movies_path, :method => 'get' do
-                %p.nav-search-form
-                  -# = button_tag( :class => "nav-search-button") do
-                  -#   %i.fa.fa-search.nav-search-icon
-                  = text_field_tag :search, params[:search], placeholder: "Quick Search"
-            = link_to image_tag('browse.PNG', class: "nav-browse-img"), new_search_path, class: "nav-browse"
-            .nav-expand
-              %i.fa.fa-ellipsis-v.nav-expand-icon
-              %nav.nav-dropdown
-                %ul
+    .header-banner
+      %header
+        = link_to image_tag('logo.PNG', class: "nav-logo-img"), root_path, class: "nav-logo"
+        .user-tools
+          .nav-search
+            = form_tag movies_path, :method => 'get' do
+              %p.nav-search-form
+                -# = button_tag( :class => "nav-search-button") do
+                -#   %i.fa.fa-search.nav-search-icon
+                = text_field_tag :search, params[:search], placeholder: "Quick Search"
+          = link_to image_tag('browse.PNG', class: "nav-browse-img"), new_search_path, class: "nav-browse"
+          .nav-expand
+            %i.fa.fa-ellipsis-v.nav-expand-icon
+            %nav.nav-dropdown
+              %ul
+                %li
+                  = link_to "Home", root_path
+                %li
+                  = link_to "Browse", new_search_path
+                %li
+                %li
+                  = link_to "Edit Profile"
+                -if user_signed_in?
                   %li
-                    = link_to "Home", root_path
+                    = link_to "Sign Out", destroy_user_session_path, method: :delete
+                -else
                   %li
-                    = link_to "Browse", new_search_path
-                  %li
-                    = link_to "Profile", profile_path
-                  %li
-                    = link_to "Edit Profile"
-                  -if user_signed_in?
-                    %li
-                      = link_to "Sign Out", destroy_user_session_path, method: :delete
-                  -else
-                    %li
-                      = link_to "Sign In", new_user_session_path
-            .nav-profile
-              = link_to profile_path do
-                %i.fa.fa-user-circle-o.nav-profile-icon
-      .notice= notice
+                    = link_to "Sign In", new_user_session_path
+          .nav-profile
+            = link_to profile_path do
+              %i.fa.fa-user-circle-o.nav-profile-icon
+    .wrapper
       = yield
-    %footer.hide
-      .footer
-        .footer-info
-          %p.text
-            MOVIE BUFF
-          %ul.links
-            %li
-              = link_to "Browse", "#", id: "f"
-            %li
-              = link_to "Profile"
-            -if user_signed_in?
-              %li
-                = link_to "Sign Out", destroy_user_session_path, method: :delete
-            -else
-              %li
-                = link_to "Sign In", new_user_session_path
-        .creator-info
-          %p.text Paritosh Mehta
-          %ul.links
-            %li
-              = link_to '#', class: "footer-icon" do
-                %i.fa.fa-instagram
-            %li
-              = link_to '#', class: "footer-icon" do
-                %i.fa.fa-github
-            %li
-              = link_to '#', class: "footer-icon" do
-                %i.fa.fa-facebook-square
-
-
--# -if user_signed_in?
--#   = link_to "Sign Out", destroy_user_session_path, method: :delete
--#   = link_to "Edit Profile", edit_user_registration_path
--# -else
--#   = link_to "Sign In", new_user_session_path

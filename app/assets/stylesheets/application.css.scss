@@ -24,18 +24,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
 }
 
 html, body {
   font-family: 'Mallanna', 'Verdana', sans-serif;
   height: 100%;
   width: 100%;
+  // background-color: #4b9ba6;
+  background-color: #6fafbb;
 }
-
-// .container {
-//     min-height: 100%;
-//     margin-bottom: -50px; /* Equivalent to footer's height */
-// }
 
 /*-------------------------------------*/
 /* Reusable Code*/
@@ -47,19 +45,43 @@ html, body {
 .show {
 
 }
-
-$blue: #00384a;
+$lightblue: #034e65;
+// $lightblue: #00485f;
+$darkblue: #00384a;
 $white: whitesmoke;
 $darkgreen: #00865a;
 $lightgreen: #a5cf10;
 $yellow: #f7cf10;
 $orange: #f76110;
 
+
+.button{
+  display: inline-block;
+  padding: 10px 15px 11px;
+  margin: 5px;
+  // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 17px;
+  vertical-align: middle;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.form-btn {
+  background: $darkgreen;
+}
+.form-sub {
+  background: $orange;
+}
+
 /*-------------------------------------*/
-/* Big Navigation Bar*/
+/* Navigation Bar*/
 /*-------------------------------------*/
 .header-banner {
-  background: $blue;
+  background: $darkblue;
   header {
     width: 90%;
     margin-left: 5%;
@@ -86,13 +108,13 @@ $orange: #f76110;
       -webkit-border-radius: 20px;
       -moz-border-radius: 20px;
       padding: 4px 30px;
-      background: $blue;
+      background: $darkblue;
       // url(/assets/images/icon-search.svg) no-repeat 9px 8px;
     }
     nav {
       position: absolute;
-      background: $blue;
-      width: 90px;
+      background: $darkblue;
+      width: 100px;
       padding: 20px;
       ul {
         list-style: none;
@@ -106,17 +128,39 @@ $orange: #f76110;
     }
   }
 }
-
+/****** Flex ******/
 header {
   display: flex;
   justify-content: space-between;
-    align-items: center;
-}
-
-.nav-logo {
-
+  align-items: center;
 }
 .user-tools {
   display: flex;
   align-items: center;
+}
+
+/*-------------------------------------*/
+/* Index Page*/
+/*-------------------------------------*/
+
+.banner {
+  background: $lightblue;
+  color: $white;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  h2, h3, .banner-actions {
+    margin: auto;
+  }
+  a, a:visited {
+    color: $white;
+    text-decoration: none;
+  }
+  .banner-text {
+    h2 {
+      margin: 3px;
+    }
+    display: flex;
+    justify-content: center;
+  }
 }
