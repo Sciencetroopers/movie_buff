@@ -31,8 +31,8 @@ html, body {
   font-family: 'Mallanna', 'Verdana', sans-serif;
   height: 100%;
   width: 100%;
-  // background-color: #4b9ba6;
-  background-color: #6fafbb;
+//  background-color: #4b9ba6;
+  background-color:  #d1dbbd;
 }
 
 /*-------------------------------------*/
@@ -45,17 +45,28 @@ html, body {
 .show {
 
 }
-$lightblue: #034e65;
+$background: #d1dbbd;
+$lightblue: #3e606f;
 // $lightblue: #00485f;
-$darkblue: #00384a;
-$white: whitesmoke;
+$darkblue: #193441;
+$white: #fcfff5;
 $darkgreen: #00865a;
 $lightgreen: #a5cf10;
 $yellow: #f7cf10;
+$red: #ff3939;
 $orange: #f76110;
 
+// From Dribble
+$darkgrey: #333333;
+$lightgrey: #444444;
+$dwhite: #f4f4f4;
+$adwhite: #fafafa;
 
+/*-------------------------------------*/
+/* Button*/
+/*-------------------------------------*/
 .button{
+  color: $white;
   display: inline-block;
   padding: 10px 15px 11px;
   margin: 5px;
@@ -71,10 +82,63 @@ $orange: #f76110;
 }
 
 .form-btn {
-  background: $darkgreen;
+  // background: $darkgreen;
+  border: 1px solid $white;
 }
 .form-sub {
-  background: $orange;
+  background: $red;
+}
+
+/*-------------------------------------*/
+/* Forms*/
+/*-------------------------------------*/
+
+.sign-up-form {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: auto;
+  margin-top: 3%;
+  background: $lightblue;
+  padding: 5%;
+  border-radius: 4px;
+  display: flex;
+  .form {
+    margin: auto;
+    color: $background;
+  }
+  .form-inputs {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  h1 {
+    text-align: center;
+    color: $white;
+  }
+  .form-inputs input, textarea{
+    background: none;
+    border: 2px solid $white;
+    color: $white;
+    height: 35px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+  }
+  input[type="file"] {
+    border: none !important;
+  }
+  .text {
+    width: 90%;
+    height: 40%;
+  }
+  .form-actions {
+    display: flex;
+    justify-content: center;
+  }
+  .errors {
+    color: $background;
+  }
 }
 
 /*-------------------------------------*/
@@ -89,6 +153,8 @@ $orange: #f76110;
     .nav-logo-img, .nav-browse-img {
       height: 40px;
       width: auto;
+      padding-top: 4px;
+      margin-bottom: -2px;
     }
     .nav-expand-icon, .nav-profile-icon {
       font-size: 170%;
@@ -114,7 +180,7 @@ $orange: #f76110;
     nav {
       position: absolute;
       background: $darkblue;
-      width: 100px;
+      width: 120px;
       padding: 20px;
       ul {
         list-style: none;

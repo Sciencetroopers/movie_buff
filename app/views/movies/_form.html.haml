@@ -1,17 +1,19 @@
 = simple_form_for(@movie, html: {class: 'form-horizontal'}) do |f|
-  = f.input :image
-  = f.input :title, input_html: {class: "form-control"}
-  = f.input :synopsis, input_html: {class: "form-control"}
-  = f.input :director, input_html: {class: "form-control"}
-  = f.input :actors, input_html: {class: "form-control"}
-  = f.input :rating, input_html: {class: "form-control"}
-  = f.input :year, input_html: {class: "form-control"}
-  = f.input :month, input_html: {class: "form-control"}
-  = f.input :genre, input_html: {class: "form-control"}
-  = f.input :length, input_html: {class: "form-control"}
-  = f.input :language, input_html: {class: "form-control"}
-  = f.input :link_rt, input_html: {class: "form-control"}
-  = f.input :link_w, input_html: {class: "form-control"}
-  = f.input :link_fb, input_html: {class: "form-control"}
-  %br
-  = f.button :submit
+  .form-inputs
+    = f.input :image, label: false, input_html: {class: "upload"}
+    = f.input :title, label: false, placeholder: "Title"
+    = f.input :synopsis, label: false, placeholder: "Synopsis"
+    = f.input :director, label: false, placeholder: "Director"
+    = f.input :actors, label: false, placeholder: "Actors"
+    = f.input :rating, label: false, placeholder: "Rating"
+    = f.input :year, label: false, placeholder: "Year"
+    = f.input :month, label: false, placeholder: "Month"
+    = f.input :genre, label: false, placeholder: "Genre"
+    = f.input :length, label: false, placeholder: "Length"
+    = f.input :language, label: false, placeholder: "Language"
+    = f.input :link_rt, label: false, placeholder: "Link to Rotton Tomatoes"
+    = f.input :link_w, label: false, placeholder: "Link to Wikepedia"
+    = f.input :link_fb, label: false, placeholder: "Link to Facebook"
+  .form-actions
+    = f.button :submit, class: "button form-sub"
+    = link_to "Cancel", root_path, class: "button form-btn"
