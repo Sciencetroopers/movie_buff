@@ -3,7 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}/
-    %link{:href => "https://fonts.googleapis.com/css?family=Mallanna", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Mallanna|Montserrat:300", :rel => "stylesheet"}/
     %title MovieBuff
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
@@ -40,5 +40,15 @@
           .nav-profile
             = link_to profile_path do
               %i.fa.fa-user-circle-o.nav-profile-icon
+    -if !user_signed_in?
+      .banner
+        .banner-text
+          %h3
+            %strong What do you crave on a Saturday Evening?
+          %h3 Welcome to a place where good movies come to have Fun!
+        .banner-actions
+          %h3
+            = link_to "Sign In", new_user_session_path, class: "button form-btn"
+            = link_to "Sign Up", new_user_registration_path, class: "button form-sub"
     .wrapper
       = yield

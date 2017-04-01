@@ -45,6 +45,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'will_paginate', '~> 3.1'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

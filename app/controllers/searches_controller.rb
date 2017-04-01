@@ -1,5 +1,6 @@
 class SearchesController < ApplicationController
   def new
+    @movies = Movie.paginate(:page => params[:page], :per_page => 2)
     @search = Search.new
     @genres = Movie.uniq.pluck(:genre)
   end

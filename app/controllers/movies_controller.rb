@@ -5,7 +5,10 @@ class MoviesController < ApplicationController
   before_action :find_movie, :only => [:show, :edit, :update, :delete, :upvote]
 
   def index
-    @movies = Movie.search(params[:search]).paginate(:page => params[:page], :per_page => 2)
+    @movies = Movie.search(params[:search])
+    @random_movie_1 = Movie.where.not(id: @movie).order("RANDOM()")
+    @random_movie_2 = Movie.where.not(id: @movie).order("RANDOM()")
+    @random_movie_3 = Movie.where.not(id: @movie).order("RANDOM()")
   end
 
   def show
@@ -53,7 +56,7 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:image, :title, :synopsis, :director,
+    params.require(:movie).permit(:image, :cover, :title, :synopsis, :director,
       :actors, :rating, :year, :month, :genre, :length, :language,
       :link_rt, :link_w, :link_fb)
   end

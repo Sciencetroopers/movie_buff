@@ -1,17 +1,21 @@
-.banner
-  .banner-text
-    %h2
-      %strong What do you crave on a Saturday Evening?
-    %h2 Welcome to a place where good movies come to have Fun!
-  .banner-actions
-    %h3
-      -if user_signed_in?
-        = "Welcome, #{current_user.name}"
-      -else
-        = link_to "Sign In", new_user_session_path, class: "button form-btn"
-        = link_to "Sign Up", new_user_registration_path, class: "button form-sub"
+= render 'carousel'
 
-- @movies.each do |movie|
-  %p= link_to movie.title, movie
+.movies
+  - @movies.each do |movie|
+    .movie
+      .poster
+        = link_to (image_tag movie.image.url(:medium)), movie, class: "poster-img"
+        .buttons
+          %span
+            -# = pluralize(movie.reviews.count, "Review")
+            = movie.reviews.count
+            %i.fa.fa-comment-o
+          %span
+            = movie.get_likes.size
+            %i.heart.fa.fa-heart
+
+
+%br
+%br
 %p= link_to "--> New Movie", new_movie_path
-%p= will_paginate @collection, renderer: BootstrapPagination::Rails, previous_label: "Previous", next_label: "Next", inner_window: 1, outer_window: 0
+-# %p= will_paginate @collection, renderer: BootstrapPagination::Rails, previous_label: "Previous", next_label: "Next", inner_window: 1, outer_window: 0

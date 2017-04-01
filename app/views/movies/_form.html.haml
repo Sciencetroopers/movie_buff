@@ -1,6 +1,8 @@
 = simple_form_for(@movie, html: {class: 'form-horizontal'}) do |f|
   .form-inputs
-    = f.input :image, label: false, input_html: {class: "upload"}
+    .upload
+      = f.input :image
+      = f.input :cover
     = f.input :title, label: false, placeholder: "Title"
     = f.input :synopsis, label: false, placeholder: "Synopsis"
     = f.input :director, label: false, placeholder: "Director"

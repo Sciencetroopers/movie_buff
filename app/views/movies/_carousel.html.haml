@@ -1,0 +1,64 @@
+#coverCarousel.carousel.slide{"data-ride" => "carousel"}
+  -# / Indicators
+  -# %ol.carousel-indicators
+  -#   %li.active{"data-slide-to" => "0", "data-target" => "#coverCarousel"}
+  -#   %li{"data-slide-to" => "1", "data-target" => "#coverCarousel"}
+  -#   %li{"data-slide-to" => "2", "data-target" => "#coverCarousel"}
+  -#   %li{"data-slide-to" => "3", "data-target" => "#coverCarousel"}
+  / Wrapper for slides
+  .carousel-inner{:role => "listbox"}
+    .item.active
+      = link_to (image_tag @random_movie_1[2].cover.url(:medium)), @random_movie_1[2]
+      .carousel-caption.caption
+        %p.title= @random_movie_1[2].title
+        %p.buttons
+          %span
+            -# = pluralize(movie.reviews.count, "Review")
+            = @random_movie_1[2].reviews.count
+            %i.fa.fa-comment-o
+          %span
+            = @random_movie_1[2].get_likes.size
+            %i.heart.fa.fa-heart
+    .item
+      = link_to (image_tag @random_movie_1[3].cover.url(:medium)), @random_movie_1[3]
+      .carousel-caption.caption
+        %p.title= @random_movie_1[3].title
+        %p.buttons
+          %span
+            -# = pluralize(movie.reviews.count, "Review")
+            = @random_movie_1[3].reviews.count
+            %i.fa.fa-comment-o
+          %span
+            = @random_movie_1[3].get_likes.size
+            %i.heart.fa.fa-heart
+    .item
+      = link_to (image_tag @random_movie_1[0].cover.url(:medium)), @random_movie_1[0]
+      .carousel-caption.caption
+        %p.title= @random_movie_1[0].title
+        %p.buttons
+          %span
+            -# = pluralize(movie.reviews.count, "Review")
+            = @random_movie_1[0].reviews.count
+            %i.fa.fa-comment-o
+          %span
+            = @random_movie_1[0].get_likes.size
+            %i.heart.fa.fa-heart
+    .item
+      = link_to (image_tag @random_movie_1[4].cover.url(:medium)), @random_movie_1[4]
+      .carousel-caption.caption
+        %p.title= @random_movie_1[4].title
+        %p.buttons
+          %span
+            -# = pluralize(movie.reviews.count, "Review")
+            = @random_movie_1[4].reviews.count
+            %i.fa.fa-comment-o
+          %span
+            = @random_movie_1[4].get_likes.size
+            %i.heart.fa.fa-heart
+  / Left and right controls
+  %a.left.carousel-control{"data-slide" => "prev", :href => "#coverCarousel", :role => "button"}
+    %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+    %span.sr-only Previous
+  %a.right.carousel-control{"data-slide" => "next", :href => "#coverCarousel", :role => "button"}
+    %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+    %span.sr-only Next

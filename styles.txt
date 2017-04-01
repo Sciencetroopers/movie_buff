@@ -1,0 +1,192 @@
+$background: #d1dbbd;
+$lightblue: #3e606f;
+// $lightblue: #00485f;
+$darkblue: #193441;
+$white: #fcfff5;
+$darkgreen: #00865a;
+$lightgreen: #a5cf10;
+$yellow: #f7cf10;
+$red: #ff3930;
+$orange: #f76110;
+
+// From Dribble
+$gold: yellow;
+$darkgrey: #333333;
+$lightgrey: #444444;
+$dwhite: #f4f4f4;
+$adwhite: #fafafa;
+
+/*-------------------------------------*/
+/* Button*/
+/*-------------------------------------*/
+.button{
+  color: $white;
+  display: inline-block;
+  padding: 10px 15px 11px;
+  margin: 5px;
+  // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 17px;
+  vertical-align: middle;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.form-btn {
+  // background: $darkgreen;
+  border: 1px solid $white;
+}
+.form-sub {
+  background: $red;
+}
+
+/*-------------------------------------*/
+/* Forms*/
+/*-------------------------------------*/
+
+.sign-up-form {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: auto;
+  margin-top: 3%;
+  background: $lightblue;
+  padding: 5%;
+  border-radius: 4px;
+  display: flex;
+  .form {
+    margin: auto;
+    color: $background;
+  }
+  .form-inputs {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  h1 {
+    text-align: center;
+    color: $white;
+  }
+  .form-inputs input, textarea{
+    background: none;
+    border: 2px solid $white;
+    color: $white;
+    height: 35px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+  }
+  input[type="file"] {
+    border: none !important;
+  }
+  .text {
+    width: 90%;
+    height: 40%;
+  }
+  .form-actions {
+    display: flex;
+    justify-content: center;
+  }
+  .errors {
+    color: $background;
+  }
+}
+
+.btn-sign-in {
+  .button {
+    padding: 20px 30px;
+  }
+}
+
+/*-------------------------------------*/
+/* Navigation Bar*/
+/*-------------------------------------*/
+.header-banner {
+  background: $darkblue;
+  header {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: auto;
+    .nav-logo-img, .nav-browse-img {
+      height: 40px;
+      width: auto;
+      padding-top: 4px;
+      margin-bottom: -2px;
+    }
+    .nav-expand-icon, .nav-profile-icon {
+      font-size: 170%;
+      color: $white;
+    }
+    .nav-search, .nav-expand, .nav-profile {
+      margin: 0 20px;
+    }
+    .nav-search-form input{
+      width: 250px;
+      height: 35px;
+      font-size: .85em;
+      font-weight: bold;
+      color: $white;
+      border: 2px solid $white;
+      border-radius: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      padding: 4px 30px;
+      background: $darkblue;
+      // url(/assets/images/icon-search.svg) no-repeat 9px 8px;
+    }
+    nav {
+      position: absolute;
+      background: $darkblue;
+      width: 120px;
+      padding: 20px;
+      ul {
+        list-style: none;
+        li {
+          a, a:visited {
+            color: $white;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+/****** Flex ******/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-tools {
+  display: flex;
+  align-items: center;
+}
+
+/*-------------------------------------*/
+/* Index Page*/
+/*-------------------------------------*/
+
+.banner {
+  background: $lightblue;
+  color: $white;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  h2, h3, .banner-actions {
+    margin: auto;
+  }
+  a, a:visited {
+    color: $white;
+    text-decoration: none;
+  }
+  .banner-text {
+    h2 {
+      margin: 3px;
+    }
+    display: flex;
+    justify-content: center;
+  }
+}

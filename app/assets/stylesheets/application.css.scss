@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap-sprockets";
  @import "font-awesome-sprockets";
+ @import "bootstrap";
  @import "font-awesome";
 
 
@@ -28,11 +30,32 @@
 }
 
 html, body {
-  font-family: 'Mallanna', 'Verdana', sans-serif;
+  font-family: 'Montserrat', 'Verdana', sans-serif;
   height: 100%;
   width: 100%;
-//  background-color: #4b9ba6;
-  background-color:  #d1dbbd;
+  background-color:  #2a2c2b;
+  color: whitesmoke;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+.wrapper {
+  max-width: 90%;
+  margin: 0px auto;
+}
+
+$white: whitesmoke;
+$black: #2a2c2b;
+$banner: #191919;
+$red: #ff3939;
+
+/*-----------HEADINGS------------- ----*/
+
+
+h1, h2, h3 {
+    margin: 0;
+    font-family: 'Mallanna', 'Verdana', sans-serif;
+    // letter-spacing: 2px;
 }
 
 /*-------------------------------------*/
@@ -45,120 +68,33 @@ html, body {
 .show {
 
 }
-$background: #d1dbbd;
-$lightblue: #3e606f;
-// $lightblue: #00485f;
-$darkblue: #193441;
-$white: #fcfff5;
-$darkgreen: #00865a;
-$lightgreen: #a5cf10;
-$yellow: #f7cf10;
-$red: #ff3939;
-$orange: #f76110;
-
-// From Dribble
-$darkgrey: #333333;
-$lightgrey: #444444;
-$dwhite: #f4f4f4;
-$adwhite: #fafafa;
-
-/*-------------------------------------*/
-/* Button*/
-/*-------------------------------------*/
-.button{
-  color: $white;
-  display: inline-block;
-  padding: 10px 15px 11px;
-  margin: 5px;
-  // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 17px;
-  vertical-align: middle;
-  cursor: pointer;
-  border: none;
-  text-decoration: none;
-  border-radius: 4px;
+.heart {
+  color: $red;
 }
-
-.form-btn {
-  // background: $darkgreen;
-  border: 1px solid $white;
-}
-.form-sub {
-  background: $red;
-}
-
-/*-------------------------------------*/
-/* Forms*/
-/*-------------------------------------*/
-
-.sign-up-form {
-  width: 60%;
-  margin-left: 20%;
-  margin-right: auto;
-  margin-top: 3%;
-  background: $lightblue;
-  padding: 5%;
-  border-radius: 4px;
-  display: flex;
-  .form {
-    margin: auto;
-    color: $background;
-  }
-  .form-inputs {
-    display: flex;
-    // flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  h1 {
-    text-align: center;
-    color: $white;
-  }
-  .form-inputs input, textarea{
-    background: none;
-    border: 2px solid $white;
-    color: $white;
-    height: 35px;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 4px;
-  }
-  input[type="file"] {
-    border: none !important;
-  }
-  .text {
-    width: 90%;
-    height: 40%;
-  }
-  .form-actions {
-    display: flex;
-    justify-content: center;
-  }
-  .errors {
-    color: $background;
-  }
-}
-
 /*-------------------------------------*/
 /* Navigation Bar*/
 /*-------------------------------------*/
 .header-banner {
-  background: $darkblue;
+  height: 12.5%;
+  background: $white;
+  -webkit-box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
   header {
+    height: 100%;
+    position: relative;
     width: 90%;
     margin-left: 5%;
     margin-right: auto;
     .nav-logo-img, .nav-browse-img {
-      height: 40px;
+      height: 60px;
       width: auto;
-      padding-top: 4px;
-      margin-bottom: -2px;
+      // padding-top: 4px;
+      // margin-bottom: -2px;
     }
     .nav-expand-icon, .nav-profile-icon {
       font-size: 170%;
-      color: $white;
+      color: $black;
     }
     .nav-search, .nav-expand, .nav-profile {
       margin: 0 20px;
@@ -168,25 +104,26 @@ $adwhite: #fafafa;
       height: 35px;
       font-size: .85em;
       font-weight: bold;
-      color: $white;
-      border: 2px solid $white;
+      color: $black;
+      border: 2px solid $black;
       border-radius: 20px;
       -webkit-border-radius: 20px;
       -moz-border-radius: 20px;
       padding: 4px 30px;
-      background: $darkblue;
+      background: $white;
       // url(/assets/images/icon-search.svg) no-repeat 9px 8px;
     }
     nav {
+      z-index: 1;
       position: absolute;
-      background: $darkblue;
+      background: $white;
       width: 120px;
       padding: 20px;
       ul {
         list-style: none;
         li {
           a, a:visited {
-            color: $white;
+            color: $black;
             text-decoration: none;
           }
         }
@@ -204,18 +141,23 @@ header {
   display: flex;
   align-items: center;
 }
-
 /*-------------------------------------*/
 /* Index Page*/
 /*-------------------------------------*/
 
 .banner {
-  background: $lightblue;
+  background: $banner;
   color: $white;
+  text-align: center;
+  height: 200px;
   padding-bottom: 15px;
+  -webkit-box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
   display: flex;
   flex-direction: column;
-  h2, h3, .banner-actions {
+  justify-content: center;
+  h3, .banner-actions {
     margin: auto;
   }
   a, a:visited {
@@ -223,10 +165,91 @@ header {
     text-decoration: none;
   }
   .banner-text {
-    h2 {
-      margin: 3px;
-    }
+    margin: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    h3 {
+      padding-top: 10px;
+    }
+  }
+}
+
+.form-inputs {
+  color: black;
+  .upload {
+    color: $white;
+  }
+}
+
+/* Carousel */
+.carousel-control.left, .carousel-control.right {
+    background-image: none;
+    color: $white;
+}
+
+#coverCarousel {
+  -webkit-box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
+  max-width: 1440px;
+  width: 95%;
+  height: 400px;
+  margin: 30px auto 30px;
+  .item {
+    z-index: 0;
+    height: 400px;
+    .carousel-caption {
+      padding-top: 10px !important;
+      background: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      bottom: -30px !important;
+      left: 0 !important;
+      right: 0 !important;
+      .title {
+        font-size: 30px;
+      }
+      .buttons {
+        font-size: 25px;
+        span {
+          padding: 0px 10px;
+        }
+      }
+    }
+  }
+
+}
+
+/* Movie Cards */
+.movies {
+  width: 90%;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  .movie {
+    -webkit-box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
+    text-align: center;
+    width: 250px;
+    margin-top: 20px;
+    background: $black;
+    position: relative;
+    .poster-img {
+    }
+    .buttons {
+      position: absolute;
+      top:11px;
+      left: 0;
+      width: 100%;
+      // background: rgb(0, 0, 0); /* fallback color */
+      background: rgba(0, 0, 0, 0.7);
+      span {
+        padding: 4px;
+        font-size: 1.3em;
+      }
+    }
+    border-bottom: 4px solid $red;
   }
 }
