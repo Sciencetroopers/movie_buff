@@ -196,6 +196,7 @@ header {
   width: 95%;
   height: 400px;
   margin: 30px auto 30px;
+  overflow: hidden;
   .item {
     z-index: 0;
     height: 400px;
@@ -250,6 +251,140 @@ header {
         font-size: 1.3em;
       }
     }
-    border-bottom: 4px solid $red;
+    // border-bottom: 4px solid $red;
   }
+}
+/*-------------------------------------*/
+/* Browse Movies Page*/
+/*-------------------------------------*/
+
+.advanced-search-form {
+  .form {
+    .form-heading {
+      text-align: center;
+    }
+    .form-fields {
+      display: flex;
+      justify-content: center;
+      .form-inputs {
+        display: flex;
+        flex-direction: column;
+        .keywords{
+          display: flex;
+          justify-content: center;
+        }
+        .year-genre {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .director-actor {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
+      .form-actions {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.paginate {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  ul {
+    .active {
+      span {
+        background: $red !important;
+      }
+    }
+    li {
+      span, a{
+        margin: 5px;
+        padding: 10px 22px;
+        color: $white !important;
+        background: $banner !important;
+        border: none !important;
+      }
+
+    }
+  }
+}
+
+/*-------------------------------------*/
+/* Movie Show Page*/
+/*-------------------------------------*/
+.movie-cover {
+  width: 100%;
+  z-index: 0;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  .show-cover {
+    // -webkit-box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
+    // -moz-box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
+    // box-shadow: 0px 3px 11px -1px rgba(0,0,0,0.75);
+    opacity: 0.2;
+    overflow: hidden;
+    position: absolute;
+    left: -100%;
+    right: -100%;
+    top: -40%;
+    bottom: -100%;
+    margin: auto;
+    height: auto;
+    width: auto;
+  }
+  position: relative;
+  .data {
+    top: 9%;
+    left: 0%;
+    width: 90%;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .movie-info {
+      // margin: auto;
+      // width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .title {
+        display: flex;
+        justify-content: center;
+        .movie-title {
+          // text-align: center;
+        }
+        .buttons {
+          text-align: center;
+          font-size: 26px;
+          span {
+            padding: 0px 10px;
+          }
+        }
+      }
+      .poster {
+        // margin: auto;
+        margin-top: 10px;
+        background: black;
+        img:hover {
+          opacity: 0.3;
+        }
+      }
+    }
+    .info {
+      width: 400px;
+      // Change in media queries
+      padding-top: 62px;
+      margin-left: 20px;
+      font-size: 1.2em;
+    }
+  }
+}
+.random_movie {
+  z-index: 2;
 }

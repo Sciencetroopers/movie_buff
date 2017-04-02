@@ -1,0 +1,17 @@
+.advanced-search-form
+  .form
+    %h1.form-heading Advanced Search
+    .form-fields
+      = simple_form_for(@search) do |f|
+        .form-inputs
+          .keywords
+            = f.input :keywords, label: false, placeholder: "Title"
+          .year-genre
+            = f.input :min_year, label: false, placeholder: "Min. Year"
+            = f.input_field :genre, :collection => @genres, :prompt => "Choose Genre", :include_blank => true, input_html: {class: "dropdown-toggle"}
+            = f.input :max_year, label: false, placeholder: "Max. Year"
+          .director-actor
+            = f.input :director, label: false, placeholder: "Director"
+            = f.input :actor, label: false, placeholder: "Actor"
+        .form-actions
+          = f.button :submit, class: "button form-sub"

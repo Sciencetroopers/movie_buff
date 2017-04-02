@@ -1,12 +1,40 @@
-%h1= @movie.title
-%p
-  = link_to "Like Movie", like_movie_path(@movie), mothod: :get
-  = @movie.get_upvotes.size
-= image_tag @movie.image.url(:medium)
-
-%p= link_to "Back", movies_path
-
-
+.movie-cover
+  = image_tag @movie.cover.url(:medium), class: "show-cover"
+  .data
+    .movie-info
+      .title
+        %h2.movie-title= @movie.title
+        .buttons
+          %span
+            = @movie.get_likes.size
+            = link_to like_movie_path(@movie), mothod: :get do
+              %i.heart.fa.fa-heart
+      .poster
+        = image_tag @movie.image.url(:medium)
+    .info
+      .basic
+        .genre-rating
+          %p
+            %b Genre:
+            =@movie.genre
+            -
+            %b Rating:
+            =@movie.rating
+        .length-year
+          %p= "#{@movie.length} - #{@movie.month} #{@movie.year}"
+      .synopsis
+        %h3
+          %b Synopsis
+        %p= simple_format(@movie.synopsis)
+      .director-actors
+        .director
+          %p
+            %b Director:
+            =@movie.director
+        .actors
+          %p
+            %b Actors:
+            = @movie.actors
 %h2= "#{pluralize(@movie.reviews.count, 'Review')}"
 
 = render @movie.reviews

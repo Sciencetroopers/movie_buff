@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :authenticate_admin, except: [:index, :show]
+  before_action :authenticate_admin, except: [:index, :show, :upvote]
   before_action :find_movie, :only => [:show, :edit, :update, :delete, :upvote]
 
   def index
