@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   before_action :find_movie, :only => [:show, :edit, :update, :delete, :upvote]
 
   def index
-    @movies = Movie.search(params[:search])
+    @movies = Movie.search(params[:search]).shuffle.first(6)
     @random_movie_1 = Movie.where.not(id: @movie).order("RANDOM()")
     @random_movie_2 = Movie.where.not(id: @movie).order("RANDOM()")
     @random_movie_3 = Movie.where.not(id: @movie).order("RANDOM()")

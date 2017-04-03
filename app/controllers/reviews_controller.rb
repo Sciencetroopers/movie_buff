@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to @movie, notice: 'review was successfully added'
     else
-      render 'new'
+      redirect_to :back
     end
   end
 

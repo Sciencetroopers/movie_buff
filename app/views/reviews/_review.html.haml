@@ -1,19 +1,24 @@
-%hr/
-- for i in 1..(review.rating)
-  %span.fa.fa-star
-%p= review.body
-%p
-  = link_to "like", like_movie_review_path(review.movie, review), method: :get
-  = review.get_upvotes.size
-  Submitted by #{review.user.name}
-- if user_signed_in?
-  - if review.user == current_user
-    %p= link_to 'Delete', [review.movie, review], method: :delete, data: {confirm: 'Are You Sure?'}
-:javascript
-  $('.star-rating').raty({
-        path: '/assets/',
-        readOnly: true,
-        score: function() {
-              return $(this).attr('data-score');
-      }
-    });
+.reviews
+  .separator
+  .stars
+    - for i in 1..(review.rating)
+      %span.fa.fa-star
+  .review-body
+    %p= review.body
+  .review-info
+    %p
+      %span by #{review.user.name}
+      = link_to like_movie_review_path(review.movie, review), mothod: :get do
+        %i.heart.fa.fa-heart
+      %span= review.get_upvotes.size
+      - if user_signed_in?
+        - if review.user == current_user
+          %span.delete= link_to 'Delete', [review.movie, review], method: :delete, data: {confirm: 'Are You Sure?'}
+-# :javascript
+-#   $('.star-rating').raty({
+-#         path: '/assets/',
+-#         readOnly: true,
+-#         score: function() {
+-#               return $(this).attr('data-score');
+-#       }
+-#     });

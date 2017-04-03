@@ -52,3 +52,22 @@
             = link_to "Sign Up", new_user_registration_path, class: "button form-sub"
     .wrapper
       = yield
+    %footer
+      .footer
+        = link_to image_tag('logo.PNG', class: "footer-logo-img"), root_path, class: "footer-logo"
+        .creator
+          %h3 Created By
+          %h2 Paritosh Mehta
+          .icons
+            %span
+              = link_to "#" do
+                %i.facebook.fa.fa-facebook-official
+            %span
+              = link_to "#" do
+                %i.github.fa.fa-github-square
+            %span
+              = link_to "#" do
+                %i.behance.fa.fa-behance-square
+            %span
+              = link_to "#" do
+                %i.instagram.fa.fa-instagram

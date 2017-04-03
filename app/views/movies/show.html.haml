@@ -6,9 +6,9 @@
         %h2.movie-title= @movie.title
         .buttons
           %span
-            = @movie.get_likes.size
             = link_to like_movie_path(@movie), mothod: :get do
               %i.heart.fa.fa-heart
+            = @movie.get_likes.size
       .poster
         = image_tag @movie.image.url(:medium)
     .info
@@ -35,18 +35,28 @@
           %p
             %b Actors:
             = @movie.actors
-%h2= "#{pluralize(@movie.reviews.count, 'Review')}"
+      .icons
+        %span
+          = link_to @movie.link_w do
+            %i.wiki.fa.fa-wikipedia-w
+        %span
+          = link_to @movie.link_rt do
+            = image_tag "tomato.png", class: "tomato"
+        %span
+          = link_to @movie.link_yt do
+            %i.youtube.fa.fa-youtube-play
+        %span
+          = link_to @movie.link_fb do
+            %i.facebook.fa.fa-facebook-official
+-# %h2= "#{pluralize(@movie.reviews.count, 'Review')}"
+
+- if current_user
+  = render 'reviews/form'
 
 = render @movie.reviews
 
-- if current_user
-  %h3 Add a Review
-  = render 'reviews/form'
-
-%br
-%br
-%hr
 .random-movie
-  = link_to (image_tag @random_movie.image.url(:small)), @random_movie
-  %h3= link_to @random_movie.title, @random_movie
-  = @random_movie.get_upvotes.size
+  = link_to @random_movie do
+    %h3
+      %i.wiki.fa.fa-random
+      Discover a Movie!

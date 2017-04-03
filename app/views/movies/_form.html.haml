@@ -16,6 +16,7 @@
     = f.input :link_rt, label: false, placeholder: "Link to Rotton Tomatoes"
     = f.input :link_w, label: false, placeholder: "Link to Wikepedia"
     = f.input :link_fb, label: false, placeholder: "Link to Facebook"
+    = f.input :link_yt, label: false, placeholder: "Link to YouTube"
   .form-actions
     = f.button :submit, class: "button form-sub"
-    = link_to "Cancel", root_path, class: "button form-btn"
+    = link_to "Cancel", @movie, class: "button form-btn"

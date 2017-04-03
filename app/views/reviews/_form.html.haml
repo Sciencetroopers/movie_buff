@@ -1,7 +1,10 @@
-= simple_form_for [@movie, Review.new] do |f|
-  #star-rating
-  = f.input :body, label: "Review", input_html: {class: 'form-control' }
-  = f.button :submit
+.review
+  = simple_form_for [@movie, Review.new] do |f|
+    #star-rating
+    .review-text
+      = f.input :body, label: "Review", label: false, placeholder: "Write a Review", size: "30x10"
+    .submit
+      = f.button :submit, "Submit"
 
 :javascript
   $('#star-rating').raty({
